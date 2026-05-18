@@ -17,7 +17,7 @@ spec:
       source:
         repoURL: https://github.com/jangmh1017/gitops-config
         targetRevision: main
-        path: apps/gitops-app/overlays/{{env}}
+        path: apps/gitops-app/overlays/*
       destination:
         server: https://kubernetes.default.svc
         namespace: gitops-app-{{env}}
