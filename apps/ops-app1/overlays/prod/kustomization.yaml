@@ -25,4 +25,4 @@ configMapGenerator:
     behavior: merge
     literals:
       - PROFILE=prod
-      - OPS_APP2_URL=http://ops-app2.ops-app2-prod.svc.cluster.local:8081
+      - OPS_APP2_URL=http://ops-app2.ops-app2-prod.svc.cluster.local:8082
