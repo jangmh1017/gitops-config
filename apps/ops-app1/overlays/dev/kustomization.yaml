@@ -8,8 +8,6 @@ namespace: ops-app1-dev
 
 images:
 - name: ops-app1
-  newName: jangmh697/ops-app1
-  newTag: sha-b4ba7d8
 
 patches:
 - patch: |-
