@@ -28,6 +28,8 @@ spec:
           envFrom:
             - configMapRef:
                 name: ops-app1-config
+            - secretRef:
+                name: ops-app1-secrets
           livenessProbe:
             httpGet:
               path: /actuator/health/liveness
@@ -40,14 +42,3 @@ spec:
               port: 8081
             initialDelaySeconds: 10
             periodSeconds: 5
-            # apps/ops-app1/base/deployment.yaml에 추가
-          spec:
-            template:
-              spec:
-                containers:
-                  - name: app
-                    envFrom:
-                      - configMapRef:
-                          name: ops-app1-config
-                      - secretRef:
-                          name: ops-app1-secrets   # ESO가 자동 생성한 Secret
