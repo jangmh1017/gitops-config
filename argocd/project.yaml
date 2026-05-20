@@ -1,24 +1,23 @@
+# argocd/project.yaml
 apiVersion: argoproj.io/v1alpha1
 kind: AppProject
 metadata:
   name: gitops-project
   namespace: argocd
 spec:
-  description: "ops-platform 프로젝트 (ops-app1 + ops-app2)"
-
+  description: "ops-platform 프로젝트"
   sourceRepos:
     - "https://github.com/jangmh1017/gitops-config"
-
   destinations:
     - server: "https://kubernetes.default.svc"
       namespace: "ops-app1-*"
     - server: "https://kubernetes.default.svc"
       namespace: "ops-app2-*"
-
   clusterResourceWhitelist:
     - group: ""
       kind: Namespace
-
+    - group: "gateway.networking.k8s.io"
+      kind: GatewayClass
   namespaceResourceWhitelist:
     - group: "*"
       kind: "*"

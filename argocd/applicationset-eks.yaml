@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: ops-platform
+  name: ops-platform-eks
   namespace: argocd
 spec:
   goTemplate: true
@@ -12,19 +12,10 @@ spec:
           - list:
               elements:
                 - app: ops-app1
-                  port: "8081"
                 - app: ops-app2
-                  port: "8082"
           - list:
               elements:
-                - env: dev
-                  replicas: "1"
-                - env: staging
-                  replicas: "2"
-                - env: qa
-                  replicas: "2"
-                - env: prod
-                  replicas: "3"
+                - env: eks-dev
   template:
     metadata:
       name: "{{.app}}-{{.env}}"
